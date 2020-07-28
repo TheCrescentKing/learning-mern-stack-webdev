@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/j-a-m-m/learn-fullstack-javascript.git"
+    "url": "git+https://github.com/j-a-m-m/learning-mern-stack-webdev.git"
   },
   "author": "",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/j-a-m-m/learn-fullstack-javascript/issues"
+    "url": "https://github.com/j-a-m-m/learning-mern-stack-webdev/issues"
   },
-  "homepage": "https://github.com/j-a-m-m/learn-fullstack-javascript#readme",
+  "homepage": "https://github.com/j-a-m-m/learning-mern-stack-webdev#readme",
   "dependencies": {
     "axios": "^0.19.2",
     "ejs": "^3.1.3",
