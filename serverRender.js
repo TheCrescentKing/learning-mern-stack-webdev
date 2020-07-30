@@ -9,15 +9,19 @@ import App from './src/components/App';
 import axios from 'axios';
 import config from './config';
 
-const serverRender = () => {
-  return axios
+const serverRender = () =>
+  axios
     .get(`${config.serverUrl}/api/contests`)
     .then((response) => {
-      return ReactDOMServer.renderToString(<App initialContests={response.data.contests} />);
+      return {
+        initialMarkup: ReactDOMServer.renderToString(
+          <App initialContests={response.data.contests} />
+        ),
+        initialData: response.data,
+      };
     })
     .catch((error) => {
       console.error(error);
     });
-};
 
 export default serverRender;

@@ -1,6 +1,6 @@
 import config from './config';
 import apiRouter from './api';
-import express, { response } from 'express';
+import express from 'express';
 import sassMiddleware from 'node-sass-middleware';
 import path from 'path';
 
@@ -19,8 +19,8 @@ import serverRender from './serverRender';
 
 server.get('/', (req, res) => {
   serverRender()
-    .then((response) => {
-      res.render('index', { content: response });
+    .then(({ initialMarkup, initialData }) => {
+      res.render('index', { initialMarkup, initialData });
     })
     .catch(console.error);
 });
