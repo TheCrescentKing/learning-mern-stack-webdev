@@ -9,8 +9,14 @@ const contestsObj = data.contests.reduce((obj, contest) => {
   return obj;
 }, {});
 
-router.get('/contests', (req, res) => {
-  res.send({ contests: contestsObj });
+router.get('/contests', (request, response) => {
+  response.send({ contests: contestsObj });
+});
+
+router.get('/contests/:id', (request, response) => {
+  let contest = contestsObj[request.params.id];
+  contest.description = 'Lorem Ipsum';
+  response.send(contest);
 });
 
 export default router;
