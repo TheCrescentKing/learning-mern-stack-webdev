@@ -4,11 +4,10 @@ import PropTypes from 'prop-types';
 class ContestPreview extends React.Component {
   constructor() {
     super();
-    this.handleClick = this.handleClick.bind(this);
   }
-  handleClick() {
+  handleClick = () => {
     this.props.onClick(this.props.id);
-  }
+  };
   render() {
     return (
       <div className="ContestPreview link" onClick={this.handleClick}>
@@ -23,7 +22,7 @@ ContestPreview.propTypes = {
   id: PropTypes.number.isRequired,
   categoryName: PropTypes.string.isRequired,
   contestName: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ContestPreview;

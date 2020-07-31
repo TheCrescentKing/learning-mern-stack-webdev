@@ -17,10 +17,10 @@ server.set('view engine', 'ejs');
 
 import serverRender from './serverRender';
 
-server.get(['/', '/contest/:id'], (req, res) => {
-  serverRender()
+server.get(['/', '/contest/:contestId'], (request, response) => {
+  serverRender(request.params.contestId)
     .then(({ initialMarkup, initialData }) => {
-      res.render('index', { initialMarkup, initialData });
+      response.render('index', { initialMarkup, initialData });
     })
     .catch(console.error);
 });
