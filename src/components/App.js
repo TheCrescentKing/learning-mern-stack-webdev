@@ -47,10 +47,10 @@ class App extends React.Component {
     // lookup the contest
     api.fetchContest(contestId).then((contest) => {
       this.setState({
-        currentContestId: contest.id,
+        currentContestId: contest._id,
         contests: {
           ...this.state.contests,
-          [contest.id]: contest,
+          [contest._id]: contest,
         },
       });
     });

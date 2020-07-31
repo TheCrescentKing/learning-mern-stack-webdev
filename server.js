@@ -1,8 +1,10 @@
 import config from './config';
 import apiRouter from './api';
 import express from 'express';
-import sassMiddleware from 'node-sass-middleware';
 import path from 'path';
+
+import sassMiddleware from 'node-sass-middleware';
+import bodyParser from 'body-parser';
 
 const server = express();
 
@@ -13,6 +15,9 @@ server.use(
   })
 );
 
+// Parse JSON in request bodies
+server.use(bodyParser.json());
+
 server.set('view engine', 'ejs');
 
 import serverRender from './serverRender';
@@ -22,7 +27,10 @@ server.get(['/', '/contest/:contestId'], (request, response) => {
     .then(({ initialMarkup, initialData }) => {
       response.render('index', { initialMarkup, initialData });
     })
-    .catch(console.error);
+    .catch((error) => {
+      console.error(error);
+      response.status(404).send('Bad Request');
+    });
 });
 
 server.use(express.static('public'));

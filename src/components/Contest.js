@@ -42,7 +42,7 @@ class Contest extends React.Component {
                 <input type="text" placeholder="New Name Here..." className="form-control" />
                 <span className="input-group-btn">
                   <button type="submit" className="btn btn-info">
-                    Sumbit
+                    Submit
                   </button>
                 </span>
               </div>
